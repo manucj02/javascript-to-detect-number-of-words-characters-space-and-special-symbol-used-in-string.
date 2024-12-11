@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script>
+        function analyzeString() {
+            let input = document.getElementById('inputString').value;
+            let words = input.trim().split(/\s+/).length;
+            let chars = input.replace(/\s/g, '').length;
+            let spaces = (input.match(/\s/g) || []).length;
+            let specials = (input.match(/[^a-zA-Z0-9\s]/g) || []).length;
+
+            document.getElementById('result').innerHTML = `
+                Words: ${words} <br>
+                Characters: ${chars} <br>
+                Spaces: ${spaces} <br>
+                Special Characters: ${specials}
+            `;
+        }
+    </script>
+</head>
+<body>
+    <h2>Detect number of words, characters, space, and special symbols. </h2>
+    <textarea id="inputString" rows="5" cols="40"></textarea><br><br>
+    <button onclick="analyzeString()">Detect</button>
+    <div id="result"></div>
+</body>
+</html>
+
